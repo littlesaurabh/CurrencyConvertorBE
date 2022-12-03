@@ -3,11 +3,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const { request } = require('express')
+const moment=require('moment')
 const port = process.env.PORT || 3001
 
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
+
+const today=moment(new Date()).format('DD/MM/YYYY')
 
 
 mongoose.connect('mongodb://localhost:27017/Currency').then(res => {
@@ -79,8 +82,8 @@ app.post("/addRate", (req, res) => {
         from: req.body.from,
         to: req.body.to,
         exchangeRate: req.body.exchangeRate,
-        date: new Date().toLocaleDateString(),
-        conversionId: req.body.from + '_' + req.body.to + '_' + new Date().toLocaleDateString()
+        date: today,
+        conversionId: req.body.from + '_' + req.body.to + '_' + today
     })
 
     data.save().then(() => res.send("Data added successfully!"), console.log("Data added")).catch((err) => {
@@ -105,7 +108,7 @@ app.get("/getRateAll", (req, res) => {
 })
 
 app.get("/getRateAllToday", (req, res) => {
-    Currency.find({date:new Date().toLocaleDateString()}, (err, found) => {
+    Currency.find({date:moment(new Date()).format('DD/MM/YYYY')}, (err, found) => {
         if (!err) {
             console.log(found)
             res.send(found)
