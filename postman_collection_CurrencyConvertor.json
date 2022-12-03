@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "feceb9fc-beda-41b3-928a-4c5811268d4c",
+		"name": "CurrencyConvertor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17469094"
+	},
+	"item": [
+		{
+			"name": "AddRate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"USD\",\r\n    \"to\": \"INR\",\r\n    \"exchangeRate\": 81.42\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/addRate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"addRate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRateAnyDateTest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"USD\",\r\n    \"to\": \"INR\",\r\n    \"exchangeRate\": 81.42,\r\n    \"date\":\"2/12/2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/addRateAnyDateTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"addRateAnyDateTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOneRate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/getRate/USD/INR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getRate",
+						"USD",
+						"INR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLiveRate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/getRate/USD/INR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"getRate",
+						"USD",
+						"INR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRateDate",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllRate",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateRate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"conversionId\": \"INR_USD_3/12/2022\",\r\n        \"from\": \"INR\",\r\n        \"to\": \"USD\",\r\n        \"exchangeRate\": 0.013,\r\n        \"date\": \"3/12/2022\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/updateRate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"updateRate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRate",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"conversionId\": \"USD_INR_2/12/2022\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/deleteRate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"deleteRate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
