@@ -103,6 +103,19 @@ app.get("/getRateAll", (req, res) => {
 
 
 })
+
+app.get("/getRateAllToday", (req, res) => {
+    Currency.find({date:new Date().toLocaleDateString()}, (err, found) => {
+        if (!err) {
+            console.log(found)
+            res.send(found)
+        } else {
+            res.send(err.message)
+        }
+    })
+
+
+})
 app.get("/getRate/:from/:to", (req, res) => {
     Currency.find({
         from: req.params.from,
